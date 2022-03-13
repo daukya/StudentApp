@@ -5,7 +5,6 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Manual;
 import net.thucydides.core.annotations.Pending;
-import net.thucydides.core.annotations.Title;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -15,11 +14,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+
 @RunWith(SerenityRunner.class)
 public class FirstSerenityTest {
     @BeforeClass
     public static void init() {
-        RestAssured.baseURI = "http://localhost:8085/student";
+        RestAssured.baseURI = "http://localhost:8085/student/list";
     }
     @Test
     public void getAllStudent() {
@@ -80,20 +80,6 @@ public class FirstSerenityTest {
     @Manual
     @Test
     public void thisIsManual(){
-
-    }
-
-    @Title("This is test case get all the students in student app")
-    @Test
-    public void test01() {
-        SerenityRest.given()
-                .when()
-                .get("/list")
-                .then()
-                .log()
-                .all()
-                .statusCode(200);
-
 
     }
 }
