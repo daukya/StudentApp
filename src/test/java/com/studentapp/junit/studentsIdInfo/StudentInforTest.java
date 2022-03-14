@@ -20,7 +20,7 @@ import java.io.FileReader;
 public class StudentInforTest {
     @BeforeClass
     public static void init() {
-        RestAssured.baseURI = "https://www.facebook.com/";
+        RestAssured.baseURI = "http://localhost:8085/student";
     }
     @Test
     public void getAllStudent() {
