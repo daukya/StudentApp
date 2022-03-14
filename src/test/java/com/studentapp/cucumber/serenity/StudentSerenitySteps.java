@@ -6,14 +6,21 @@ import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTags;
 
 import java.util.List;
 
 public class StudentSerenitySteps {
 
+    @WithTags({
+            @WithTag("Student feature: Smoke test 2"),
+            @WithTag("Student feature: POSITIVE")
+    })
+    @Title("Create new users")
     @Step("This test will create new student with Firstname: {0} into the list")
     public ValidatableResponse CreateStudent(String Firstname, String lastname, String email, String program, List<String> courses){
-        System.out.println(Firstname);
         StudentClass student = new StudentClass();
         student.setFirstName(Firstname);
         student.setLastName(lastname);

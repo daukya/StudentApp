@@ -17,6 +17,13 @@
 
     </properties>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-rest-assured -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>

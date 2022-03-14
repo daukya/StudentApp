@@ -9,14 +9,11 @@ import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTags;
 import net.thucydides.junit.annotations.Concurrent;
 import net.thucydides.junit.annotations.UseTestDataFrom;
-import org.junit.FixMethodOrder;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
+
 import java.util.ArrayList;
 
-@Concurrent(threads = "4")
 @UseTestDataFrom("testdata/studentinfo.csv")
 @RunWith(SerenityParameterizedRunner.class)
 public class CreateDataDrivenTest extends TestBase {
@@ -61,13 +58,6 @@ public class CreateDataDrivenTest extends TestBase {
         this.course = course;
     }
 
-//    public StudentSerenitySteps getSteps() {
-//        return steps;
-//    }
-
-    public void setSteps(StudentSerenitySteps steps) {
-        this.steps = steps;
-    }
     private String firstname;
     private String lastname;
     private String email;

@@ -1,19 +1,16 @@
 package com.studentapp.junit.studentsInfo;
 
-import com.restassured.model.StudentClass;
 import com.studentapp.cucumber.serenity.StudentSerenitySteps;
 import com.studentapp.testbase.TestBase;
 import com.studentapp.utils.ReUseableSpecfications;
 import com.studentapp.utils.TestUtils;
 import io.restassured.http.ContentType;
-import io.restassured.specification.RequestSpecification;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTags;
-import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -21,7 +18,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING) //phải đặt bên ngoài class
@@ -29,7 +25,6 @@ import java.util.HashMap;
 public class StudentsCRUDTest extends TestBase {
     //khai báo biến ở đây để gán cho giá trị tham chiếu
     static String firstname = "Tuyen" + TestUtils.getRandomValue();
-    //static String firstname = "Oscar";
     static String lastname = "Le";
     static String program = "Financial Analysis";
     static String email = TestUtils.getRandomValue() + "lenguyenthanhtuyen97@gmail.com";
@@ -51,33 +46,6 @@ public class StudentsCRUDTest extends TestBase {
                 .spec(ReUseableSpecfications.getGenericResponseSpec());
 
     }
-
-    @Ignore
-    @Title("Verify that the student was added to the list")
-    @Test
-    public void tc02() {
-        String p1 = "findAll{it.firstname=='";
-        String p2 = "'}.get(0)";
-
-        HashMap<String, Object> value = SerenityRest.rest().given()
-                .when()
-                .get("/list")
-                .then()
-                .log()
-                .all()
-                .statusCode(200)
-                .extract()
-                //path này sau khi chạy sẽ trả về một cái array, array này sẽ đc path ra sử dụng hashmap để lưu với
-                // key và value tương ứng
-                // .path("finAll{it.fisrtName==''}.get(0)");
-                .path(p1 + firstname + p2);
-        // System.out.println(p1+firstname+p2);
-        System.out.println("The value is" + value);
-        //assertThat(value,hasValue(firstname));
-        // System.out.println(p1+firstname+p2);
-
-    }
-
 
     @WithTags({
             @WithTag("Student feature: Smoke test"),
